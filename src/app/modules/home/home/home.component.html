@@ -28,22 +28,38 @@
             <div class="card" *ngFor="let data of spaceAllData">
                 <img src="{{data.links.mission_patch_small}}" alt="spaceX">
                 <div class="container">
-                    <h4><b>{{data.mission_name}} #{{data.flight_number}}</b></h4> 
+                    <h4><b><span class="text-primary">{{data.mission_name}}</span> #{{data.flight_number}}</b></h4> 
                     <h5>Mission Ids:</h5>
                     <div *ngIf="data.mission_id && data.mission_id.length>0; then thenBlock else elseBlock"></div>
                     <ng-template #thenBlock>
                         <ul>
-                            <li *ngFor="let id of data.mission_id">{{id}}</li>
+                            <li class="text-primary" *ngFor="let id of data.mission_id">{{id}}</li>
                         </ul>
                     </ng-template>
                     <ng-template #elseBlock>
-                        <p>No Ids</p>
+                        <p class="text-primary">No Ids</p>
                     </ng-template>
                    
-                    <h5>Launch Years:</h5>
-                    <p>{{data.launch_year}}</p> 
-                    <h5>Successful Launch:</h5>
-                    <p>{{data.launch_success}}</p> 
+                    <div class="width100pr">
+                        <div style="width: 50%;float: left;margin: -20px 0 0 0;">
+                            <h5>Launch Years:</h5>
+                        </div>
+                        <div class="text-primary" style="width: 50%;float: right;">
+                            {{data.launch_year}}
+                        </div>
+                    </div>
+                    <div class="width100pr">
+                        <div style="width: 50%;float: left;margin: -20px 0 0 0;">
+                            <h5>Successful Launch: </h5>
+                        </div>
+                        <div class="text-primary" style="width: 50%;float: right;">{{data.launch_success}}</div>
+                    </div>
+                    <div class="width100pr">
+                        <div style="width: 50%;float: left;margin: -20px 0 0 0;">
+                            <h5>Successful Landing: </h5>
+                        </div>
+                        <div class="text-primary" style="width: 50%;float: right;">{{successLanding}}</div>
+                    </div>
                 </div>
             </div>
         </ng-template>
