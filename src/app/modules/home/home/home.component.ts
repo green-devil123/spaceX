@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpaceXService } from '../services/space-x.service';
-import * as _ from 'underscore';
+import { SpaceXService } from 'src/app/services/space-x.service';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +17,7 @@ export class HomeComponent implements OnInit {
   launch_year = "2014";
 
   constructor(
-    public spacexService: SpaceXService
-  ) { }
+    public spacexService: SpaceXService) { }
 
   selectYear(e,year){
     const self = this;
@@ -66,8 +64,9 @@ export class HomeComponent implements OnInit {
         r[a.launch_year].push(a);
         return r;
       }, Object.create(null));
-      self.launchYears = Object.keys(self.spaceAllDataGroupBy)
+      self.launchYears = Object.keys(self.spaceAllDataGroupBy);
     });
+
   }
 
 }

@@ -1,0 +1,37 @@
+<div style="background-color: #f1f1f1; padding:5px">
+    <h4>spaceX Launch Program</h4>
+</div>
+<div class="row">
+    <div class="side">
+        <h5>Launch Year:</h5>
+        <div class="fakeimg" style="height:290px;">
+            <div *ngFor="let year of launchYears">
+                <span (click)="selectYear($event,year)">{{year}}</span>
+            </div>
+        </div>
+        <h5>Successful Launch:</h5>
+        <div>
+            <button type="button" (click)="selectSuccessLaunch($event, 1)">True</button>
+            <button type="button" (click)="selectSuccessLaunch($event, 0)">False</button>
+        </div>
+        <h5>Successful Landing:</h5>
+        <div>
+            <button type="button" (click)="selectSuccessLanding($event, 1)">True</button>
+            <button type="button" (click)="selectSuccessLanding($event, 0)">False</button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="card" *ngFor="let data of spaceAllData">
+            <img src="{{data.links.mission_patch_small}}" alt="Avatar">
+            <div class="container">
+              <h4><b>{{data.mission_name}} #{{data.flight_number}}</b></h4> 
+              <h5>Mission Ids:</h5>
+              <p>{{data.mission_id | json}}</p> 
+              <h5>Launch Years:</h5>
+              <p>{{data.launch_year}}</p> 
+              <h5>Successful Launch:</h5>
+              <p>{{data.launch_success}}</p> 
+            </div>
+        </div>
+      </div>
+</div>
