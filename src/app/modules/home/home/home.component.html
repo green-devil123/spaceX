@@ -1,37 +1,56 @@
-<div style="background-color: #f1f1f1; padding:5px">
-    <h4>spaceX Launch Program</h4>
-</div>
 <div class="row">
     <div class="side">
-        <h5>Launch Year:</h5>
-        <div class="fakeimg" style="height:290px;">
-            <div *ngFor="let year of launchYears">
-                <span (click)="selectYear($event,year)">{{year}}</span>
+        <div class="left-side" >
+            <h2>Filters</h2>
+            <div class="alignCenter">
+                <h5>Launch Year:</h5>
+                <div class="yearButton width100pr">
+                    <div [ngClass]="launch_year === year ? 'activeButtonBackgroud': 'buttonBackground'" *ngFor="let year of launchYears">
+                        <span (click)="selectYear($event,year)">{{year}}</span>
+                    </div>
+                </div>
+                <h5>Successful Launch:</h5>
+                <div class="launchButton width100pr">
+                    <div  [ngClass]="successLaunch ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 1)">True</div>
+                    <div  [ngClass]="!successLaunch ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 0)">False</div>
+                </div>
+                <h5>Successful Landing:</h5>
+                <div class="launchButton width100pr">
+                    <div  [ngClass]="successLanding ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 1)">True</div>
+                    <div  [ngClass]="!successLanding ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 0)">False</div>
+                </div>
             </div>
         </div>
-        <h5>Successful Launch:</h5>
-        <div>
-            <button type="button" (click)="selectSuccessLaunch($event, 1)">True</button>
-            <button type="button" (click)="selectSuccessLaunch($event, 0)">False</button>
-        </div>
-        <h5>Successful Landing:</h5>
-        <div>
-            <button type="button" (click)="selectSuccessLanding($event, 1)">True</button>
-            <button type="button" (click)="selectSuccessLanding($event, 0)">False</button>
-        </div>
-      </div>
-      <div class="main">
-        <div class="card" *ngFor="let data of spaceAllData">
-            <img src="{{data.links.mission_patch_small}}" alt="Avatar">
-            <div class="container">
-              <h4><b>{{data.mission_name}} #{{data.flight_number}}</b></h4> 
-              <h5>Mission Ids:</h5>
-              <p>{{data.mission_id | json}}</p> 
-              <h5>Launch Years:</h5>
-              <p>{{data.launch_year}}</p> 
-              <h5>Successful Launch:</h5>
-              <p>{{data.launch_success}}</p> 
+    </div>
+    <div class="main">
+        <div *ngIf="spaceAllData && spaceAllData.length > 0; then cardElseBlock else cardElseBlock"></div>
+        <ng-template #cardBlock>
+            <div class="card" *ngFor="let data of spaceAllData">
+                <img src="{{data.links.mission_patch_small}}" alt="spaceX">
+                <div class="container">
+                    <h4><b>{{data.mission_name}} #{{data.flight_number}}</b></h4> 
+                    <h5>Mission Ids:</h5>
+                    <div *ngIf="data.mission_id && data.mission_id.length>0; then thenBlock else elseBlock"></div>
+                    <ng-template #thenBlock>
+                        <ul>
+                            <li *ngFor="let id of data.mission_id">{{id}}</li>
+                        </ul>
+                    </ng-template>
+                    <ng-template #elseBlock>
+                        <p>No Ids</p>
+                    </ng-template>
+                   
+                    <h5>Launch Years:</h5>
+                    <p>{{data.launch_year}}</p> 
+                    <h5>Successful Launch:</h5>
+                    <p>{{data.launch_success}}</p> 
+                </div>
             </div>
-        </div>
-      </div>
+        </ng-template>
+        <ng-template #cardElseBlock>
+            <div class="centerAlign">
+                No Data Available
+            </div>
+        </ng-template>
+    </div>
 </div>

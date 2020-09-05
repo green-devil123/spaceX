@@ -8,10 +8,9 @@
 /* Sidebar/left column */
 .side {
   flex: 10%;
-  background-color: #fff;
   padding: 20px;
   height: 550px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 /* Main column */
@@ -21,27 +20,53 @@
   padding: 20px;
 }
 
+.left-side{
+  background-color: #fff;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.left-side h2{
+  margin-left: 10px;
+}
 /* Fake image, just for this example */
-.fakeimg {
+.yearButton {
+  height: 300px;
+}
+.width100pr{
   width: 100%;
 }
-.fakeimg div {
+
+.launchButton div, .yearButton div {
   display: inline-block;
   padding: 8px 15px;
-  background: #cbe79f;
   border-radius: 5px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
-.fakeimg div:nth-child(odd){
+.launchButton div, .yearButton div:nth-child(odd){
   margin-right: 50px;
 }
+
+.launchButton .buttonBackground,.yearButton .buttonBackground{
+  background: #cbe79f;
+}
+.launchButton .activeButtonBackgroud,.yearButton .activeButtonBackgroud{
+  background:#7fbf01;
+} 
+
+.alignCenter{
+  text-align: center;
+}
+
 .card {
     transition: 0.3s;
-    width: 25%;
+    width: 23%;
     display: inline-block;
     background: #fff;
-    border-radius: 10px;
-    /* flex: 20%; */
+    border-radius: 6px;
+    margin: 0px 18px 18px 0px;
 }
 
 .card:hover {
@@ -84,7 +109,7 @@ padding: 2px 16px;
     width: 50%;
     display: inline-block;
   }
-  .fakeimg div:nth-child(odd){
+  .yearButton div:nth-child(odd){
     margin-right: 30px;
   }
 }
@@ -99,14 +124,14 @@ padding: 2px 16px;
   .card{
     width: 100%;
   }
-  .fakeimg{
+  .yearButton{
     width: 50%;
   }
-  .fakeimg div:nth-child(odd){
+  .yearButton div:nth-child(odd){
     float: left;
     margin-right: 0px;
   }
-  .fakeimg div:nth-child(even){
+  .yearButton div:nth-child(even){
     float: right;
     margin-right: 0px;
   }

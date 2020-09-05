@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   spaceAllData:any;
   launchYears = [];
   successLaunch:boolean = true;
-  successLanding:boolean= true;
+  successLanding:boolean = true;
   launch_year = "2014";
 
   constructor(
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   selectYear(e,year){
     const self = this;
     self.launch_year = year;
+    self.spaceAllData = [];
     self.spacexService.overAllFilter(self.limit,self.successLaunch,self.successLanding,self.launch_year).subscribe(res=>{
       self.spaceAllData = res;
     });
