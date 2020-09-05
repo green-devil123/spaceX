@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="main">
-        <div *ngIf="spaceAllData && spaceAllData.length > 0; then cardElseBlock else cardElseBlock"></div>
+        <div *ngIf="spaceAllData && spaceAllData.length > 0; then cardBlock else cardElseBlock"></div>
         <ng-template #cardBlock>
             <div class="card" *ngFor="let data of spaceAllData">
                 <img src="{{data.links.mission_patch_small}}" alt="spaceX">
