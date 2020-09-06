@@ -21,6 +21,17 @@ To provide the viewport in index.html for responsive web page.
 #### Opeartion
 
 
+# github remote
+git init
+git add README.md
+git commit -m ""(message comment)
+git branch -M master
+git remote add origin https://github.com/green-devil123/spaceX.git
+git push -u origin master
+
+### deploy on server
+
+
 
 
 
