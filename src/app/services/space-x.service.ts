@@ -36,4 +36,23 @@ export class SpaceXService {
     headers.append('Content-type', 'application/json');
     return this.http.get(this.baseUrl + limit + '&launch_success=' + launchSuccess+ '&land_success=' + landSuccess + '&launch_year=' + launch_year, {headers: headers});
   }
+  // launch overall filter by Launch
+  overAllFilterByLaunch(limit,launchSuccess, launch_year){
+    let headers = new HttpHeaders();
+    headers.append('Content-type', 'application/json');
+    return this.http.get(this.baseUrl + limit + '&launch_success=' + launchSuccess+ '&launch_year=' + launch_year, {headers: headers});
+  }
+  // landing overall filter by Land
+  overAllFilterByLand(limit,landSuccess, launch_year){
+    let headers = new HttpHeaders();
+    headers.append('Content-type', 'application/json');
+    return this.http.get(this.baseUrl + limit + '&land_success=' + landSuccess + '&launch_year=' + launch_year, {headers: headers});
+  }
+
+  // landing overall filter by Launch year
+  overAllFilterByLaunchYear(limit, launch_year){
+    let headers = new HttpHeaders();
+    headers.append('Content-type', 'application/json');
+    return this.http.get(this.baseUrl + limit + '&launch_year=' + launch_year, {headers: headers});
+  }
 }

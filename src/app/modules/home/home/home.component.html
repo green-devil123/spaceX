@@ -11,18 +11,18 @@
                 </div>
                 <h5>Successful Launch:</h5>
                 <div class="launchButton width100pr">
-                    <div  [ngClass]="successLaunch ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 1)">True</div>
-                    <div class="mr-0"  [ngClass]="!successLaunch ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 0)">False</div>
+                    <div  [ngClass]="successLaunchStatus === 1 ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 1)">True</div>
+                    <div class="mr-0"  [ngClass]="successLaunchStatus === 0 ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 0)">False</div>
                 </div>
                 <h5>Successful Landing:</h5>
                 <div class="launchButton width100pr">
-                    <div  [ngClass]="successLanding ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 1)">True</div>
-                    <div class="mr-0" [ngClass]="!successLanding ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 0)">False</div>
+                    <div  [ngClass]="successLandingStatus === 1 ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 1)">True</div>
+                    <div class="mr-0" [ngClass]="successLandingStatus === 0 ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 0)">False</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="main">
+    <div class="main" [ngClass]="{'displayCenter' : !(spaceAllData.length > 0)}">
         <div *ngIf="spaceAllData && spaceAllData.length > 0; then cardBlock else cardElseBlock"></div>
         <ng-template #cardBlock>
             <div class="card" *ngFor="let data of spaceAllData">
@@ -48,7 +48,7 @@
                         <h5 class="inlineBlck m-5">Successful Launch:</h5>
                         <p class="text-primary inlineBlck m-5">{{data.launch_success}}</p>
                     </div>
-                    <div class="displayBlck">
+                    <div class="displayBlck" *ngIf="successLanding != undefined">
                         <h5 class="inlineBlck m-5">Successful Landing:</h5>
                         <p class="text-primary inlineBlck m-5">{{successLanding}}</p>
                     </div>
@@ -56,7 +56,7 @@
             </div>
         </ng-template>
         <ng-template #cardElseBlock>
-            <div class="centerAlign">
+            <div>
                 No Data Available
             </div>
         </ng-template>
