@@ -1,6 +1,6 @@
 <div class="row">
     <div class="side">
-        <div class="left-side" >
+        <div class="left-side">
             <h2>Filters</h2>
             <div class="alignCenter">
                 <h5>Launch Year:</h5>
@@ -12,12 +12,12 @@
                 <h5>Successful Launch:</h5>
                 <div class="launchButton width100pr">
                     <div  [ngClass]="successLaunch ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 1)">True</div>
-                    <div  [ngClass]="!successLaunch ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 0)">False</div>
+                    <div class="mr-0"  [ngClass]="!successLaunch ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLaunch($event, 0)">False</div>
                 </div>
                 <h5>Successful Landing:</h5>
                 <div class="launchButton width100pr">
                     <div  [ngClass]="successLanding ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 1)">True</div>
-                    <div  [ngClass]="!successLanding ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 0)">False</div>
+                    <div class="mr-0" [ngClass]="!successLanding ? 'activeButtonBackgroud': 'buttonBackground'" (click)="selectSuccessLanding($event, 0)">False</div>
                 </div>
             </div>
         </div>
@@ -40,25 +40,17 @@
                         <p class="text-primary">No Ids</p>
                     </ng-template>
                    
-                    <div class="width100pr">
-                        <div style="width: 50%;float: left;margin: -20px 0 0 0;">
-                            <h5>Launch Years:</h5>
-                        </div>
-                        <div class="text-primary" style="width: 50%;float: right;">
-                            {{data.launch_year}}
-                        </div>
+                    <div class="displayBlck">
+                        <h5 class="inlineBlck m-5">Launch Years:</h5>
+                        <p class="text-primary inlineBlck m-5">{{data.launch_year}}</p>
                     </div>
-                    <div class="width100pr">
-                        <div style="width: 50%;float: left;margin: -20px 0 0 0;">
-                            <h5>Successful Launch: </h5>
-                        </div>
-                        <div class="text-primary" style="width: 50%;float: right;">{{data.launch_success}}</div>
+                    <div class="displayBlck">
+                        <h5 class="inlineBlck m-5">Successful Launch:</h5>
+                        <p class="text-primary inlineBlck m-5">{{data.launch_success}}</p>
                     </div>
-                    <div class="width100pr">
-                        <div style="width: 50%;float: left;margin: -20px 0 0 0;">
-                            <h5>Successful Landing: </h5>
-                        </div>
-                        <div class="text-primary" style="width: 50%;float: right;">{{successLanding}}</div>
+                    <div class="displayBlck">
+                        <h5 class="inlineBlck m-5">Successful Landing:</h5>
+                        <p class="text-primary inlineBlck m-5">{{successLanding}}</p>
                     </div>
                 </div>
             </div>

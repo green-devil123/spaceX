@@ -56,6 +56,10 @@
   background:#7fbf01;
 } 
 
+.launchButton .mr-0{
+  margin-right: 0px;
+}
+
 .alignCenter{
   text-align: center;
 }
@@ -67,6 +71,7 @@
     background: #fff;
     border-radius: 6px;
     margin: 0px 18px 18px 0px;
+    padding-bottom: 15px;
 }
 
 .card:hover {
@@ -74,11 +79,12 @@
 }
 .card img{
   width: 80%;
-    margin: 12px auto;
-    align-items: center;
-    display: flex;
-    padding: 12px;
-    background: #f1f1f1;
+  margin: 12px auto;
+  align-items: center;
+  display: flex;
+  padding: 0px 5px 0px 5px;
+  background: #f1f1f1;
+  height: 184px;
 }
   
 .container {
@@ -91,45 +97,72 @@ padding: 2px 16px;
   width: 75px;
 } */
 
+.text-primary {
+  color: #007bff!important;
+}
+
+div ul{
+  padding-inline-start: 20px;
+}
+
+.displayBlck{
+  display: block;
+}
+
+.displayBlck .m-5{
+  margin: 5px;
+}
+
+.inlineBlck{
+  display: inline-block;
+}
+
 @media screen and (max-width: 1024px) {
   .row, .navbar {   
     flex-direction: row;
   }
   .side{
-    flex: 10%;
+    flex: 16%;
   }
   .main{
     flex: 55%;
   }
   .card{
-    width: 50%;
+    width: 46%;
     display: inline-block;
+  }
+
+  .card img{
+    height: 200px;
+  }
+
+  .launchButton .mr-0{
+    margin-right: 0px;
   }
 }
 
-.text-primary {
-  color: #007bff!important;
-}
-
-@media screen and (max-width: 991px) {
+/* @media screen and (max-width: 991px) {
   .row, .navbar {   
     flex-direction: row;
   }
   .side{
-    flex: 10%;
+    flex: 15%;
   }
   .main{
-    flex: 55%;
+    flex: 50%;
   }
   .card{
-    width: 50%;
+    width: 45%;
     display: inline-block;
   }
   .yearButton div:nth-child(odd){
     margin-right: 30px;
   }
-}
-@media screen and (max-width: 767px) {
+  .launchButton div{
+    margin-right: 10px;
+  }
+} */
+@media screen and (max-width: 700px) {
   body{
     margin: 0px 20px;
   }
@@ -141,7 +174,10 @@ padding: 2px 16px;
     width: 100%;
   }
   .yearButton{
-    width: 50%;
+    /* width: 50%; */
+    width: 66%;
+    margin: 0px 0 0px 44px;
+    display: block;
   }
   .yearButton div:nth-child(odd){
     float: left;
@@ -150,5 +186,13 @@ padding: 2px 16px;
   .yearButton div:nth-child(even){
     float: right;
     margin-right: 0px;
+  }
+
+  .launchButton .mr-0{
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 200px;
   }
 }

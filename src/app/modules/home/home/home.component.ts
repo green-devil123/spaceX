@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   launchYears = [];
   successLaunch:boolean = true;
   successLanding:boolean = true;
-  launch_year = "2014";
+  launch_year = "2006";
 
   constructor(
     public spacexService: SpaceXService) { }
