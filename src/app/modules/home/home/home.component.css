@@ -151,27 +151,6 @@ div ul{
   }
 }
 
-/* @media screen and (max-width: 991px) {
-  .row, .navbar {   
-    flex-direction: row;
-  }
-  .side{
-    flex: 15%;
-  }
-  .main{
-    flex: 50%;
-  }
-  .card{
-    width: 45%;
-    display: inline-block;
-  }
-  .yearButton div:nth-child(odd){
-    margin-right: 30px;
-  }
-  .launchButton div{
-    margin-right: 10px;
-  }
-} */
 @media screen and (max-width: 700px) {
   body{
     margin: 0px 20px;
@@ -184,9 +163,8 @@ div ul{
     width: 100%;
   }
   .yearButton{
-    /* width: 50%; */
-    width: 66%;
-    margin: 0px 0 0px 44px;
+    width: 32%;
+    margin: 0 auto;
     display: block;
   }
   .yearButton div:nth-child(odd){
@@ -195,7 +173,7 @@ div ul{
   }
   .yearButton div:nth-child(even){
     float: right;
-    margin-right: 0px;
+    margin-right: 15px;
   }
 
   .launchButton .mr-0{
@@ -204,5 +182,118 @@ div ul{
 
   .card img{
     height: 200px;
+  }
+   .container{
+    padding: 2px 60px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body{
+    margin: 0px 20px;
+  }
+  
+  .row, .navbar {   
+    flex-direction: column;
+  }
+  .card{
+    width: 100%;
+  }
+  .yearButton{
+    width: 36%;
+    margin: 0 auto;
+    display: block;
+  }
+  .yearButton div:nth-child(odd){
+    float: left;
+    margin-right: 0px;
+  }
+  .yearButton div:nth-child(even){
+    float: right;
+    margin-right: 15px;
+  }
+
+  .launchButton .mr-0{
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 200px;
+  }
+  .container{
+    padding: 2px 50px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body{
+    margin: 0px 20px;
+  }
+  
+  .row, .navbar {   
+    flex-direction: column;
+  }
+  .card{
+    width: 100%;
+  }
+  .yearButton{
+    width: 45%;
+    margin: 0 auto;
+    display: block;
+  }
+  .yearButton div:nth-child(odd){
+    float: left;
+    margin-right: 0px;
+  }
+  .yearButton div:nth-child(even){
+    float: right;
+    margin-right: 10px;
+  }
+
+  .launchButton .mr-0{
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 200px;
+  }
+  .container{
+    padding: 2px 40px;
+  }
+}
+@media screen and (max-width: 380px) {
+  body{
+    margin: 0px 20px;
+  }
+  
+  .row, .navbar {   
+    flex-direction: column;
+  }
+  .card{
+    width: 100%;
+  }
+  .yearButton{
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+  }
+  .yearButton div:nth-child(odd){
+    float: left;
+    margin-right: 0px;
+  }
+  .yearButton div:nth-child(even){
+    float: right;
+    margin-right: 10px;
+  }
+
+  .launchButton .mr-0{
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 200px;
+  }
+  .container{
+    padding: 2px 30px;
   }
 }
