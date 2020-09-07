@@ -5,9 +5,16 @@
             <div class="alignCenter">
                 <h5>Launch Year:</h5>
                 <div class="yearButton width100pr">
-                    <div [ngClass]="launch_year === year ? 'activeButtonBackgroud': 'buttonBackground'" *ngFor="let year of launchYears">
+                    <div *ngIf="launchYears && launchYears.length > 0; then yearBlock else yearElseBlock"></div>
+                    <ng-template #yearBlock>
+                         <div [ngClass]="launch_year === year ? 'activeButtonBackgroud': 'buttonBackground'" *ngFor="let year of launchYears">
                         <span (click)="selectYear($event,year)">{{year}}</span>
                     </div>
+                    </ng-template>
+
+                    <ng-template #yearElseBlock>
+                        <app-card-loader Cheight="50" Cwidth="100"></app-card-loader>
+                    </ng-template>
                 </div>
                 <h5>Successful Launch:</h5>
                 <div class="launchButton width100pr">
@@ -23,14 +30,27 @@
         </div>
     </div>
     <div class="main" [ngClass]="{'displayCenter' : !(spaceAllData.length > 0)}">
+        
         <div *ngIf="spaceAllData && spaceAllData.length > 0; then cardBlock else cardElseBlock"></div>
         <ng-template #cardBlock>
             <div class="card" *ngFor="let data of spaceAllData">
-                <img src="{{data.links.mission_patch_small}}" alt="spaceX">
+                
+                <app-card-loader *ngIf="!loaded" Cwidth="100" Cheight="100" circle="true" ></app-card-loader>
+
+                <img *ngIf="loaded" src="{{data.links.mission_patch_small}}" alt="spaceX">
                 <div class="container">
-                    <h4><b><span class="text-primary">{{data.mission_name}}</span> #{{data.flight_number}}</b></h4> 
+
+                    <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
+                    <h4 *ngIf="loaded"><b><span class="text-primary">{{data.mission_name}}</span> #{{data.flight_number}}</b></h4> 
+
                     <h5>Mission Ids:</h5>
-                    <div *ngIf="data.mission_id && data.mission_id.length>0; then thenBlock else elseBlock"></div>
+
+                    <app-card-loader *ngIf="!loaded ;else idsBlock" Cwidth="100" margin="0"></app-card-loader>
+                    <ng-template #idsBlock>
+
+                        <div *ngIf="data.mission_id && data.mission_id.length>0; then thenBlock else elseBlock"></div>
+                    </ng-template>
+
                     <ng-template #thenBlock>
                         <ul>
                             <li class="text-primary" *ngFor="let id of data.mission_id">{{id}}</li>
@@ -42,21 +62,28 @@
                    
                     <div class="displayBlck">
                         <h5 class="inlineBlck m-5">Launch Years:</h5>
-                        <p class="text-primary inlineBlck m-5">{{data.launch_year}}</p>
+                        <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
+                        <p class="text-primary inlineBlck m-5" *ngIf="loaded">{{data.launch_year}}</p>
                     </div>
+
                     <div class="displayBlck">
                         <h5 class="inlineBlck m-5">Successful Launch:</h5>
-                        <p class="text-primary inlineBlck m-5">{{data.launch_success}}</p>
+                        <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
+                        <p class="text-primary inlineBlck m-5" *ngIf="loaded">{{data.launch_success}}</p>
                     </div>
+
                     <div class="displayBlck">
                         <h5 class="inlineBlck m-5">Successful Landing:</h5>
-                        <p class="text-primary inlineBlck m-5">{{data.land_success}}</p>
+                        <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
+                        <p class="text-primary inlineBlck m-5" *ngIf="loaded">{{data.land_success}}</p>
                     </div>
+
                 </div>
             </div>
         </ng-template>
         <ng-template #cardElseBlock>
             <div>
+                <app-card-loader Cheight="50" Cwidth="100"></app-card-loader>
                 No Data Available
             </div>
         </ng-template>

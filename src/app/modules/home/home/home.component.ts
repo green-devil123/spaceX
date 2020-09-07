@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   successLanding:boolean;
   successLandingStatus:number;
   launch_year:string = "";
+  loaded = false;
 
   constructor(
     public spacexService: SpaceXService) { }
@@ -25,10 +26,12 @@ export class HomeComponent implements OnInit {
     const self = this;
     self.launch_year = year;
     self.emtySpaceAllData();
+    self.loaded = false;
     if(self.successLaunch != undefined && self.successLanding != undefined){
       self.spacexService.overAllFilter(self.limit,self.successLaunch,self.successLanding,self.launch_year).subscribe(res=>{
         self.spaceAllData = res;
         self.func(self.spaceAllData);
+        self.afterDataLoad();
       });
     }else{
       if(self.successLaunch != undefined){
@@ -36,18 +39,21 @@ export class HomeComponent implements OnInit {
         self.spacexService.overAllFilterByLaunch(self.limit,self.successLaunch, self.launch_year).subscribe(res=>{
           self.spaceAllData = res;
           self.func(self.spaceAllData);
+          self.afterDataLoad();
         });
       }else{
         if(self.successLanding != undefined){
           self.spacexService.overAllFilterByLand(self.limit,self.successLanding, self.launch_year).subscribe(res=>{
             self.spaceAllData = res;
             self.func(self.spaceAllData);
+            self.afterDataLoad();
           });
         }else{
   
           self.spacexService.overAllFilterByLaunchYear(self.limit, self.launch_year).subscribe(res=>{
             self.spaceAllData = res;
             self.func(self.spaceAllData);
+            self.afterDataLoad();
           });
         }
       }
@@ -62,6 +68,7 @@ export class HomeComponent implements OnInit {
       this.successLaunch = false;
     }
     const self = this;
+    self.loaded = false;
     if(self.launch_year && self.launch_year != undefined ){
       self.selectYear(e, self.launch_year)
     }
@@ -74,6 +81,7 @@ export class HomeComponent implements OnInit {
         self.spacexService.launchSucessFilter(self.limit,self.successLaunch).subscribe(res=>{
           self.spaceAllData = res;
           self.func(self.spaceAllData);
+          self.afterDataLoad();
         });
       }
     }
@@ -87,6 +95,7 @@ export class HomeComponent implements OnInit {
       this.successLanding = false;
     }
     const self = this;
+    self.loaded = false;
     if(self.launch_year != undefined){
       self.selectYear(e, self.launch_year)
     }else{
@@ -94,6 +103,7 @@ export class HomeComponent implements OnInit {
       self.spacexService.launchAndLandFilter(self.limit,self.successLaunch, self.successLanding).subscribe(res=>{
         self.spaceAllData = res;
         self.func(self.spaceAllData);
+        self.afterDataLoad();
       });
     }
   }
@@ -111,6 +121,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  afterDataLoad(){
+    setInterval(() => {
+      this.loaded = true;
+    }, 4000);
+  }
+
   ngOnInit(): void {
     const limit = this.limit;
     const self = this;
@@ -124,6 +140,7 @@ export class HomeComponent implements OnInit {
         return r;
         }, Object.create(null));
         self.launchYears = Object.keys(self.spaceAllDataGroupBy);
+        self.afterDataLoad();
     });
 
   }
