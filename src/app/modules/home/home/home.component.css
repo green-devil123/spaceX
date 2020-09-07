@@ -13,16 +13,16 @@
 /* Sidebar/left column */
 .side {
   flex: 10%;
-  padding: 20px;
+  padding: 20px 15px 20px 15px;
   height: 550px;
   border-radius: 6px;
 }
 
 /* Main column */
 .main {
-  flex: 64%;
+  flex: 66%;
   background-color: transparent;
-  padding: 20px;
+  padding: 20px 15px 20px 15px;
 }
 
 .left-side{
@@ -51,7 +51,7 @@
   cursor: pointer;
 }
 .launchButton div, .yearButton div:nth-child(odd){
-  margin-right: 50px;
+  margin-right: 35px;
 }
 
 .launchButton .buttonBackground,.yearButton .buttonBackground{
@@ -75,7 +75,7 @@
     display: inline-block;
     background: #fff;
     border-radius: 6px;
-    margin: 0px 18px 18px 0px;
+    margin: 0px 15px 15px 0px;
     padding-bottom: 15px;
 }
 
@@ -89,7 +89,7 @@
   display: flex;
   padding: 0px 5px 0px 5px;
   background: #f1f1f1;
-  height: 184px;
+  height: 170px;
 }
   
 .container {
