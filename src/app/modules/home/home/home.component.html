@@ -35,7 +35,7 @@
         <ng-template #cardBlock>
             <div class="card" *ngFor="let data of spaceAllData">
                 
-                <app-card-loader *ngIf="!loaded" Cwidth="100" Cheight="100" circle="true" ></app-card-loader>
+                <app-card-loader *ngIf="!loaded" Cwidth="100" Cheight="100" circle="false" ></app-card-loader>
 
                 <img *ngIf="loaded" src="{{data.links.mission_patch_small}}" alt="spaceX">
                 <div class="container">
@@ -62,19 +62,19 @@
                    
                     <div class="displayBlck">
                         <h5 class="inlineBlck m-5">Launch Years:</h5>
-                        <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
+                        <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0" class="loaderBox"></app-card-loader>
                         <p class="text-primary inlineBlck m-5" *ngIf="loaded">{{data.launch_year}}</p>
                     </div>
 
                     <div class="displayBlck">
                         <h5 class="inlineBlck m-5">Successful Launch:</h5>
-                        <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
+                        <app-card-loader *ngIf="!loaded" Cwidth="60" margin="0" class="loaderBox"></app-card-loader>
                         <p class="text-primary inlineBlck m-5" *ngIf="loaded">{{data.launch_success}}</p>
                     </div>
 
                     <div class="displayBlck">
                         <h5 class="inlineBlck m-5">Successful Landing:</h5>
-                        <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
+                        <app-card-loader *ngIf="!loaded" Cwidth="60" margin="0" class="loaderBox"></app-card-loader>
                         <p class="text-primary inlineBlck m-5" *ngIf="loaded">{{data.land_success}}</p>
                     </div>
 

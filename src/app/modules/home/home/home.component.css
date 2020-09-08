@@ -131,7 +131,11 @@ div ul{
     height: 35px;
 }
 
-
+.loaderBox{
+  display: inline-block;
+  margin-top: 10px;
+  height: 30px;
+}
 @media screen and (max-width: 1024px) {
   .row, .navbar {   
     flex-direction: row;
