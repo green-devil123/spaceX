@@ -20,7 +20,6 @@ To provide the viewport in index.html for responsive web page.
 
 #### Opeartion
 
-
 # github remote
 git init
 git add README.md
@@ -29,9 +28,18 @@ git branch -M master
 git remote add origin https://github.com/green-devil123/spaceX.git
 git push -u origin master
 
+
 ### deploy on server
 
-
+After commit code on github
+Sign in heroku create the app then connected the github and deploy it 
+If you click View, a new tab will be opened but your app will not display. then Configure Your Angular App to Deploy Properly on Heroku: 
+1. Ensure you have the latest version of angular cli and angular compiler cli.
+2. Create postinstall script in package.json - "heroku-postbuild": "ng build --prod"
+3. Add Node and NPM engines - "engines": {"node": "6.11.0","npm": "3.10.10"}
+4. Install Express server by running: npm install express path --save.
+5. Create a server.js file in the root of the application.
+6. Change start command:  "start": "node server.js"
 
 
 
