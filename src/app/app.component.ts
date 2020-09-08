@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'spaceX';
-  developerName:string = "Tarun Agarwal"
 }
