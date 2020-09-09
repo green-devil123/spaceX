@@ -1,6 +1,6 @@
 <div class="card" *ngFor="let data of spaceAllData">
         <app-card-loader *ngIf="!loaded" Cwidth="100" Cheight="100" circle="false" ></app-card-loader>
-        <img *ngIf="loaded" src="{{data.links.mission_patch_small}}" alt="spaceX">
+        <img *ngIf="loaded" src="{{data.mission_patch_small}}" alt="spaceX">
         <div class="container">
             <app-card-loader *ngIf="!loaded" Cwidth="100" margin="0"></app-card-loader>
             <h4 *ngIf="loaded"><b><span class="text-primary">{{data.mission_name}}</span> #{{data.flight_number}}</b></h4> 

@@ -11,7 +11,6 @@ export class CardBoxComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    debugger
   }
 
 }

@@ -29,30 +29,26 @@ export class HomeComponent implements OnInit {
     self.loaded = false;
     if(self.successLaunch != undefined && self.successLanding != undefined){
       self.spacexService.overAllFilter(self.limit,self.successLaunch,self.successLanding,self.launch_year).subscribe(res=>{
-        self.spaceAllData = res;
-        self.func(self.spaceAllData);
+        self.func(res);
         self.afterDataLoad();
       });
     }else{
       if(self.successLaunch != undefined){
 
         self.spacexService.overAllFilterByLaunch(self.limit,self.successLaunch, self.launch_year).subscribe(res=>{
-          self.spaceAllData = res;
-          self.func(self.spaceAllData);
+          self.func(res);
           self.afterDataLoad();
         });
       }else{
         if(self.successLanding != undefined){
           self.spacexService.overAllFilterByLand(self.limit,self.successLanding, self.launch_year).subscribe(res=>{
-            self.spaceAllData = res;
-            self.func(self.spaceAllData);
+            self.func(res);
             self.afterDataLoad();
           });
         }else{
   
           self.spacexService.overAllFilterByLaunchYear(self.limit, self.launch_year).subscribe(res=>{
-            self.spaceAllData = res;
-            self.func(self.spaceAllData);
+            self.func(res);
             self.afterDataLoad();
           });
         }
@@ -79,8 +75,7 @@ export class HomeComponent implements OnInit {
       else{
         self.emtySpaceAllData();
         self.spacexService.launchSucessFilter(self.limit,self.successLaunch).subscribe(res=>{
-          self.spaceAllData = res;
-          self.func(self.spaceAllData);
+          self.func(res);
           self.afterDataLoad();
         });
       }
@@ -101,8 +96,7 @@ export class HomeComponent implements OnInit {
     }else{
       self.emtySpaceAllData();
       self.spacexService.launchAndLandFilter(self.limit,self.successLaunch, self.successLanding).subscribe(res=>{
-        self.spaceAllData = res;
-        self.func(self.spaceAllData);
+        self.func(res);
         self.afterDataLoad();
       });
     }
@@ -118,6 +112,15 @@ export class HomeComponent implements OnInit {
       if(objdata.length > 0){
         obj['land_success'] = objdata[0].land_success
       }
+      this.spaceAllData.push({
+        launch_year: obj.launch_year,
+        launch_success: obj.launch_success,
+        land_success: obj.launch_success,
+        mission_patch_small: obj.links.mission_patch_small,
+        mission_name: obj.mission_name,
+        flight_number: obj.flight_number,
+        mission_id: obj.mission_id,
+      })
     })
   }
 
@@ -132,8 +135,7 @@ export class HomeComponent implements OnInit {
     const self = this;
     self.emtySpaceAllData();
     self.spacexService.getAllSpaceX(limit).subscribe(res=>{
-        self.spaceAllData = res;
-        self.func(self.spaceAllData);
+        self.func(res);
         self.spaceAllDataGroupBy = self.spaceAllData.reduce(function (r, a) {
         r[a.launch_year] = r[a.launch_year] || [];
         r[a.launch_year].push(a);
