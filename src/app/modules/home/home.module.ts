@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CardLoaderComponent } from './card-loader/card-loader.component';
+import { CardBoxComponent } from './home/card-box/card-box.component';
 
 // Routing
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [HomeComponent, CardLoaderComponent],
+  declarations: [HomeComponent, CardLoaderComponent, CardBoxComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)

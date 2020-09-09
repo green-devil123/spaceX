@@ -9,3 +9,7 @@ body {
 .pointerCursor{
     cursor: pointer;
 }
+
+.text-primary {
+    color: #007bff!important;
+}

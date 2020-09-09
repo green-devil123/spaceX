@@ -1,0 +1,131 @@
+.card {
+    transition: 0.3s;
+    width: 23%;
+    display: inline-block;
+    background: #fff;
+    border-radius: 6px;
+    margin: 0px 15px 15px 0px;
+    padding-bottom: 15px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card img{
+  width: 80%;
+  margin: 12px auto;
+  align-items: center;
+  display: flex;
+  padding: 0px 5px 0px 5px;
+  background: #f1f1f1;
+  height: 170px;
+}
+
+.container {
+    padding: 2px 16px;
+}
+.container h4{
+    height: 35px;
+}
+
+div ul{
+    padding-inline-start: 20px;
+}
+
+.displayBlck{
+    display: block;
+}
+
+.displayBlck .m-5{
+        margin: 5px;
+}
+
+.inlineBlck{
+    display: inline-block;
+}
+
+.displayCenter{
+    margin:auto;
+    text-align: center;
+}
+.container h4{
+    height: 35px;
+}
+
+.loaderBox{
+    display: inline-block;
+    margin-top: 10px;
+    height: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+    .card{
+      width: 46%;
+      display: inline-block;
+    }
+  
+    .card img{
+      height: 200px;
+    }
+  
+    .launchButton .mr-0{
+      margin-right: 0px;
+    }
+}
+  
+@media screen and (max-width: 700px) {
+    body{
+        margin: 0px 20px;
+    }
+    .card{
+        width: 100%;
+    }
+
+    .card img{
+        height: 200px;
+    }
+        .container{
+        padding: 2px 60px;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    .card{
+        width: 100%;
+    }
+    .card img{
+        height: 200px;
+    }
+    .container{
+        padding: 2px 50px;
+    }
+}
+  
+@media screen and (max-width: 480px) {
+    .card{
+        width: 100%;
+    }
+
+    .card img{
+        height: 200px;
+    }
+    .container{
+        padding: 2px 40px;
+    }
+
+}
+
+@media screen and (max-width: 380px) {
+
+    .card{
+        width: 100%;
+    }
+
+    .card img{
+        height: 200px;
+    }
+    .container{
+        padding: 2px 30px;
+    }
+
+}
