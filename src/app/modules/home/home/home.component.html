@@ -7,9 +7,9 @@
                 <div class="yearButton width100pr">
                     <div *ngIf="launchYears && launchYears.length > 0; then yearBlock else yearElseBlock"></div>
                     <ng-template #yearBlock>
-                         <div [ngClass]="launch_year === year ? 'activeButtonBackgroud': 'buttonBackground'" *ngFor="let year of launchYears">
-                        <span (click)="selectYear($event,year)">{{year}}</span>
-                    </div>
+                        <div [ngClass]="launch_year === year ? 'activeButtonBackgroud': 'buttonBackground'" *ngFor="let year of launchYears" (click)="selectYear($event,year)">
+                            {{year}}
+                        </div>
                     </ng-template>
 
                     <ng-template #yearElseBlock>
