@@ -78,7 +78,13 @@ export class HomeComponent implements OnInit {
     }
     else{
       if(self.successLanding != undefined){
-        self.selectSuccessLanding(e, self.successLanding)
+        if(self.successLanding){
+          self.successLandingStatus = 1;
+        }else{
+          self.successLandingStatus = 0;
+        }
+        debugger
+        self.selectSuccessLanding(e, self.successLandingStatus)
       }
       else{
         self.emtySpaceAllData();
@@ -121,13 +127,13 @@ export class HomeComponent implements OnInit {
   func(spaceAllData) {
     spaceAllData.forEach(obj=>{
       const objdata = obj['rocket']['first_stage']['cores'];
-      if(objdata.length > 0){
-        obj['land_success'] = objdata[0].land_success
-      }
+      // if(objdata.length > 0){
+      //   obj['land_success'] = objdata[0].land_success
+      // }
       this.spaceAllData.push({
         launch_year: obj.launch_year,
         launch_success: obj.launch_success,
-        land_success: obj.launch_success,
+        land_success: objdata[0].land_success,
         mission_patch_small: obj.links.mission_patch_small,
         mission_name: obj.mission_name,
         flight_number: obj.flight_number,
