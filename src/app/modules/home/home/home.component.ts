@@ -83,7 +83,6 @@ export class HomeComponent implements OnInit {
         }else{
           self.successLandingStatus = 0;
         }
-        debugger
         self.selectSuccessLanding(e, self.successLandingStatus)
       }
       else{
